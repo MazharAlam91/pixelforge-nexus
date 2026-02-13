@@ -37,7 +37,7 @@
       "response": []
     },
     {
-      "name": "Prjct",
+      "name": "Create Project",
       "request": {
         "auth": {
           "type": "noauth"
@@ -75,7 +75,7 @@
       "response": []
     },
     {
-      "name": "Prjcts",
+      "name": "All Projects",
       "request": {
         "auth": {
           "type": "noauth"
@@ -105,7 +105,7 @@
       "response": []
     },
     {
-      "name": "Prjcts Copy",
+      "name": "Delete Project",
       "request": {
         "auth": {
           "type": "noauth"

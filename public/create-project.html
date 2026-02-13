@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Project</title>
+</head>
+<body>
+
+<h2>Create Project</h2>
+
+<button onclick="logout()">Logout</button>
+
+<br><br>
+
+<input id="title" placeholder="Title"><br><br>
+<input id="description" placeholder="Description"><br><br>
+<input id="deadline" type="date"><br><br>
+
+<h3>Select Project Lead</h3>
+<select id="leadId"></select>
+
+<br><br>
+
+<button onclick="createProject()">Create</button>
+
+
+<script>
+
+// ==============================
+// AUTH CHECK (VERY IMPORTANT)
+// ==============================
+
+const token = localStorage.getItem("token");
+
+if(!token){
+    window.location.href = "login.html";
+}
+
+
+// ==============================
+// LOAD LEADS
+// ==============================
+
+window.onload = loadLeads;
+
+async function loadLeads(){
+
+try{
+
+    const res = await fetch("http://localhost:5000/api/auth/leads",{
+        headers:{
+            "Authorization":"Bearer " + token
+        }
+    });
+
+    if(!res.ok){
+        throw new Error("Failed to load leads");
+    }
+
+    const leads = await res.json();
+
+    const select = document.getElementById("leadId");
+
+    select.innerHTML = "";
+
+    leads.forEach(lead=>{
+        select.innerHTML += `
+            <option value="${lead._id}">
+                ${lead.email}
+            </option>
+        `;
+    });
+
+}catch(err){
+
+    console.log(err);
+    alert("Error loading leads");
+
+}
+
+}
+
+
+
+// ==============================
+// CREATE PROJECT
+// ==============================
+
+async function createProject(){
+
+try{
+
+    const res = await fetch("http://localhost:5000/api/projects",{
+
+        method:"POST",
+
+        headers:{
+            "Content-Type":"application/json",
+            "Authorization":"Bearer "+token
+        },
+
+        body: JSON.stringify({
+            title:document.getElementById("title").value,
+            description:document.getElementById("description").value,
+            deadline:document.getElementById("deadline").value,
+            lead: document.getElementById("leadId").value
+        })
+
+    });
+
+    if(!res.ok){
+        throw new Error("Project creation failed");
+    }
+
+    alert("✅ Project Created!");
+
+    // ⭐ Redirect to dashboard
+    window.location.href = "dashboard.html";
+
+}catch(err){
+
+    console.log(err);
+    alert("Error creating project");
+
+}
+
+}
+
+
+
+// ==============================
+// LOGOUT
+// ==============================
+
+function logout(){
+localStorage.clear();
+window.location.href="login.html";
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Project Details</title>
+</head>
+
+<body>
+
+<h1>Project Details</h1>
+
+<button onclick="logout()">Logout</button>
+
+<div id="project"></div>
+
+
+<!-- ✅ ADMIN + LEAD CONTROLS -->
+<div id="leadControls" style="display:none; margin-top:20px;">
+
+    <h3>Upload Document</h3>
+    <input type="file" id="file">
+    <button onclick="upload()">Upload</button>
+
+    <hr>
+
+    <h3>Assign Developer</h3>
+    <select id="developerId"></select>
+    <button onclick="assign()">Assign</button>
+
+    <hr>
+
+    <button onclick="complete()">Mark Completed</button>
+
+    <button onclick="deleteProject()" style="color:red;">
+        Delete Project
+    </button>
+
+</div>
+
+
+<script src="project.js"></script>
+
+</body>
+</html>

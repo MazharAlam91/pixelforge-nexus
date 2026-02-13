@@ -1,98 +1,86 @@
+# 🚀 PixelForge Nexus — Secure Scalable RBAC Backend System
+
+A production-ready secure REST API built with **Node.js, Express, and MongoDB** implementing Authentication, Role-Based Access Control (RBAC), CRUD operations, and secure file uploads.
+
+Developed as part of a **Backend Developer Internship assignment** to demonstrate secure backend architecture, scalable design, and API development skills.
 
 ---
 
-# 🔐 Security Features
+# 📌 Features Overview
 
-## ✅ Authentication
-- Password hashing using **bcrypt**
+## 🔑 Authentication & Authorization
+- Secure password hashing using **bcrypt**
 - JWT-based authentication
-- Stateless session handling
+- Stateless session management
+- Role-Based Access Control (RBAC)
 
-## ✅ Authorization
-Role-Based Access Control ensures restricted access:
+### Roles & Permissions
 
 | Role | Permissions |
 |--------|------------|
-| **Admin** | Create users, create/delete projects, assign leads, upload documents |
-| **Project Lead** | Assign developers, manage project resources |
-| **Developer** | View assigned projects and documents |
+| **Admin** | Create users, create/delete projects, assign project leads, upload documents |
+| **Project Lead** | Assign developers, manage project resources, upload documents |
+| **Developer** | View assigned projects and access documents |
 
 ---
 
-## ✅ API Protection
-- Protected routes via authentication middleware
-- Token verification on every request
-- Unauthorized users blocked automatically
-
----
-
-## ✅ Additional Security Practices
-- Helmet.js for HTTP header security
-- Express Rate Limiting to prevent brute-force attacks
-- Environment variables for secret keys
-- MongoDB schema validation
-
----
-
-# 🚀 Core Features
-
-## 🔑 Authentication APIs
-- User Login
-- Admin-controlled User Registration
-- Password hashing
-- JWT token generation
-
----
-
-## 📁 Project Management (CRUD)
+## 📁 Project Management (Full CRUD)
 
 ✔ Create Project  
 ✔ View Projects  
 ✔ Update Project Status  
-✔ Delete Project  
+✔ Delete Projects  
 ✔ Assign Developers  
 ✔ Upload Project Documents  
 
 ---
 
 ## 👥 Team Assignment
-Project Leads and Admins can assign developers to specific projects.
-
-Developers can only view projects assigned to them.
+- Project Leads and Admins can assign developers to projects.
+- Developers can only access projects assigned to them.
+- Unauthorized access is automatically blocked.
 
 ---
 
-## 📄 Document Management
+## 📄 Secure Document Management
 - Secure file uploads using **Multer**
 - Documents linked directly to projects
-- Accessible only to authorized users
+- Access restricted to authorized users only
+
+---
+
+# 🔐 Security Features
+
+✅ Protected API routes via authentication middleware  
+✅ Token verification on every request  
+✅ Helmet.js for HTTP header protection  
+✅ Express Rate Limiting to prevent brute-force attacks  
+✅ Environment variables for secret keys  
+✅ MongoDB schema validation  
 
 ---
 
 # 🛠 Tech Stack
 
 ## Backend
-- Node.js
-- Express.js
-- MongoDB
-- Mongoose
-- JWT
-- bcrypt
-- Multer
-- Helmet
-- Express-rate-limit
+- Node.js  
+- Express.js  
+- MongoDB  
+- Mongoose  
+- JWT  
+- bcrypt  
+- Multer  
+- Helmet  
+- Express-rate-limit  
 
 ## Frontend (Basic UI)
-- HTML
-- CSS
-- Vanilla JavaScript
+- HTML  
+- CSS  
+- Vanilla JavaScript  
 
 ---
 
 # 📂 Project Structure
-
-
-## Project Structure
 
 pixelforge-nexus  
 │  
@@ -111,78 +99,122 @@ pixelforge-nexus
 │   └── create-project.html  
 │  
 ├── uploads  
-└── README.md
+├── SCALABILITY.md  
+└── README.md  
 
-## Installation Guide
+---
 
-### 1. Clone Repository
-git clone <your-github-link>
+# ⚙️ Installation Guide
 
-### 2. Install Dependencies
+## 1️⃣ Clone Repository
+git clone https://github.com/MazharAlam91/pixelforge-nexus.git
+
+---
+
+## 2️⃣ Install Dependencies
 cd server  
 npm install  
 
-### 3. Create .env file inside server folder
+---
+
+## 3️⃣ Create .env File inside **server** folder
 
 MONGO_URI=your_mongodb_connection_string  
 JWT_SECRET=your_secret_key  
 
-### 4. Run Server
+---
+
+## 4️⃣ Run Server
+
+If using nodemon:
+
 npm run dev  
 
+Otherwise:
+
+node server.js  
+
 Server will start on:
+
 http://localhost:5000
 
 ---
 
-## Running Frontend
+# 🌐 Running the Frontend
 
-Open browser and go to:
+Open browser:
 
 http://localhost:5000/login.html
 
+---
 
-## Security Features
+# 📘 API Documentation
 
-- Password hashing using bcrypt  
-- JWT-based authentication  
-- Role-Based Authorization  
-- Protected API routes  
-- Helmet for HTTP security  
-- Rate limiting to prevent brute-force attacks  
-- Environment variables for sensitive data  
+A complete **Postman Collection** is included in this repository.
+
+Import it into Postman to test:
+
+- Authentication APIs  
+- Project CRUD APIs  
+- File Upload APIs  
+- Role-Protected Routes  
 
 ---
 
-## Test Credentials
+# 🧪 Test Credentials
 
-Admin Login:
-
+### ✅ Admin Login
 Email: admin@test.com  
 Password: 123456  
 
+(You may change credentials inside the database if needed.)
 
 ---
 
-## Scalability Note
+# 📈 Scalability Note
 
-The system follows a modular architecture which makes it easy to scale in the future.
+The system follows a **modular architecture**, making it easy to scale for enterprise usage.
 
-Possible improvements:
-
-- Redis caching  
-- Docker deployment  
+### Future Improvements:
+- Redis caching for faster response times  
+- Docker containerization  
 - Load balancing  
 - Microservices architecture  
+- Centralized logging  
+
+(See **SCALABILITY.md** for details.)
 
 ---
 
-## Author
+# ✅ Assignment Requirements Covered
+
+✔ Secure Authentication (JWT + bcrypt)  
+✔ Role-Based Access Control  
+✔ Full CRUD APIs  
+✔ Secure File Upload  
+✔ Protected Routes  
+✔ Database Schema Design  
+✔ Basic Frontend Integration  
+✔ Scalable Backend Architecture  
+✔ API Documentation  
+
+---
+
+# 👨‍💻 Author
 
 Mazhar Alam  
-B.Tech Computer Science (Cybersecurity)
+Backend Developer | Cybersecurity Enthusiast  
 
 ---
 
-This project demonstrates strong backend development skills including secure API design, authentication, database management, and scalable architecture.
+# ⭐ Project Summary
 
+This project demonstrates strong backend engineering capabilities including:
+
+- Secure API development  
+- Authentication & authorization  
+- Database design  
+- Scalable architecture  
+- Secure file handling  
+
+Built with a focus on **security, modularity, and production-ready practices**.
